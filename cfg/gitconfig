@@ -1,0 +1,55 @@
+[user]
+	name = msjang
+	email = msjang@kisti.re.kr
+
+[merge]
+	tool=kdiff3
+
+[color]
+	diff=auto
+	branch=auto
+	status=auto
+
+[diff]
+	# external = git-vimdiff.sh
+
+[pager]
+	diff =
+
+[core]
+	excludesfile = /Users/msjang/.gitignore_global
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+[commit]
+	template = /Users/msjang/.stCommitMsg
+
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	ll = log --date=local
+	lll = log --date=local --raw
+	st = status
+	ci = commit
+	co = checkout
+	di = diff
+	dc = diff --cached
+	amend = commit --amend
+	aa = add --all
+	ff = merge --ff-only
+	pullff = pull --ff-only
+	noff = merge --no-ff
+	fa = fetch --all
+	pom = push origin master
+	b = branch
+	ds = diff --stat=160,120
+	dh1 = diff HEAD~1
+	stt = status -uno
+	dd = diff --no-ext-diff
+	permission-reset = "!git diff --no-ext-diff -p | grep -E \"^(diff|old mode|new mode)\" | sed -e \"s/^old/NEW/;s/^new/old/;s/^NEW/new/\" | git apply"
+	br = branch
